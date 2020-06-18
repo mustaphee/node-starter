@@ -1,0 +1,117 @@
+
+
+components:
+##################################################################
+###                RESPONSE COMPONENTS                       ####
+#################################################################
+  responses:
+    Success:
+      description: OK - The specified resource was Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessSchema'
+    Created:
+      description: CREATED - The specified resource was created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessSchema'
+    NotFound:
+      description: NOT FOUND - The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSchema'
+    Failure:
+      description: FAILED - The specified resource failed 
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSchema'
+    UPE:
+      description: UNPROCESSABLE ENTITY - You did not supply the required data to use this endpoint
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSchema'
+    Unauthorized:
+      description: FORBIDDEN - You are unauthorized to use this resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSchema'
+
+
+
+  schemas:
+##################################################################
+###               ERROR SCHEMA COMPONENTS                    ####
+#################################################################
+    ErrorSchema:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        error:
+          type: string
+      required:
+        - status
+        - error
+        - message
+      example:
+        status: fail
+        message: An error occured
+        error: ERROR_REASON_FLAG
+ #  Schema for success response body
+    SuccessSchema:
+      type: object
+      required:
+        - status
+        - message
+        - data
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+      example:
+        status: success
+        message: Action successful
+        data: [{_id: 4343ddd3sad32ewqd23e23d3d }]
+ 
+
+
+
+
+
+
+##################################################################
+###           REUSABLE   SCHEMA COMPONENTS                    ####
+#################################################################
+    AccessCredentials:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          format: byte
+          description: |
+            Base64-formatted string containing username
+        password:
+          type: string
+          format: byte
+          description: |
+            Base64-formatted string containing username
+

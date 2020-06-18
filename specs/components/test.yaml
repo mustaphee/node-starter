@@ -1,0 +1,48 @@
+post:
+    tags: [Static API]
+    summary: Ping the server
+    parameters:
+    # - in: path
+    #   name: name
+    #   schema:
+    #     type: string
+    #   required: true
+    #   description: |
+    #     describe
+    # - in: query
+    #   name: strict
+    #   schema:
+    #     type: boolean
+    #   description: |
+    #     > Note: Adding `?strict=true` will make the result more targeted, and will 
+    #     only return values starting with your terms (also excluding country)
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TestSchema'
+    responses:
+      200:    # status code
+        $ref: './base-components.yaml#/components/responses/Success'
+      422:    # status code
+        $ref: './base-components.yaml#/components/responses/UPE'
+      500:    # status code
+        $ref: './base-components.yaml#/components/responses/Failure'
+
+components:
+  schemas: 
+    TestSchema:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: |
+            An string to test connection to the server
+        data:
+          type: string
+          description: |
+            An string to send with message as data field

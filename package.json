@@ -1,0 +1,50 @@
+{
+  "name": "node-starter",
+  "version": "1.0.0",
+  "description": "Node Boilerplate",
+  "main": "server.js",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.0",
+    "bee-queue": "^1.2.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^3.22.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.13",
+    "pino": "^6.2.1",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "pino-pretty": "^4.0.0",
+    "redoc-cli": "^0.9.8",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "test": "mocha --timeout 2500 --exit",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "redoc-bundle": "./node_modules/redoc-cli/index.js bundle ./specs/api-specs-v3.yaml --output ./docs/index.html",
+    "redoc-dev": "./node_modules/redoc-cli/index.js serve ./specs/api-specs-v3.yaml --watch --port 4041",
+    "rebuild-docs": "./node_modules/watch/cli.js  \"npm run redoc-bundle\" ./specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustaphee/node-starter.git"
+  },
+  "keywords": [
+    "node",
+    "starter",
+    "supplier"
+  ],
+  "author": "Yusuff Mustapha",
+  "license": "ISC",
+  "homepage": "git+https://github.com/mustaphee/node-starter.git#readme"
+}

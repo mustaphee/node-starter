@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Node Boilerplate documentation
+
+  description: |
+    ## Introduction
+    **DEMO ** API provides a REST interface for communicating with some lorem text.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti non natus
+    animi quisquam, recusandae adipisci eius obcaecati, tempore necessitatibus alias 
+    aperiam eos voluptate consequuntur odit explicabo asperiores illum quod rerum.
+
+    > NOTE: [Insomnia](https://insomnia.rest/download) is highly recommended!
+
+    Some endpoints require the use of a cookie, so dont forget to send a cookie
+    with a valid session ID in your header along with the endpoints that requires it. A sample
+    cookie can be seen below.
+        
+        ASP.NET_SessionId=${sessionId}; Path=/; Secure; HttpOnly; SameSite=Lax; Domain=${thisDomain}
+
+
+  version: 0.1.9
+
+servers:
+  - url: http://localhost:3003/api/
+    description: Development server description
+  - url: http://staging-api.example.com
+    description: Staging Server
+paths: 
+  /v1/test:
+    $ref: './components/test.yaml'
+  
