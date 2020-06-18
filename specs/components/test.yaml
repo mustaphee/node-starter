@@ -1,7 +1,7 @@
 post:
     tags: [Static API]
     summary: Ping the server
-    parameters:
+    # parameters:
     # - in: path
     #   name: name
     #   schema:
